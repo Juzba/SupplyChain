@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B73EF943-9D95-41A7-8659-7C6699753A8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F6BE7008-1E1D-4343-958D-4858ED268160}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uml", "uml", "{A02B2F7B-5DA0-4489-8DBC-5B062A961831}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requirements", "requirements", "{BF796FAE-4EFF-4078-8C11-6DB545848CE0}"
+	ProjectSection(SolutionItems) = preProject
+		requirements\project-brief.md = requirements\project-brief.md
+		requirements\Zadani1.odt = requirements\Zadani1.odt
+		requirements\Zadani2.odt = requirements\Zadani2.odt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Core", "src\SupplyChain.Core\SupplyChain.Core.csproj", "{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Infrastructure", "src\SupplyChain.Infrastructure\SupplyChain.Infrastructure.csproj", "{1B630247-379F-4A68-A31D-2F952FD2CDFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Api", "src\SupplyChain.Api\SupplyChain.Api.csproj", "{67624C55-9B43-4E36-810B-EA491B1C7AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Api.Tests", "src\tests\SupplyChain.Api.Tests\SupplyChain.Api.Tests.csproj", "{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Core.Tests", "src\tests\SupplyChain.Core.Tests\SupplyChain.Core.Tests.csproj", "{3A7EAFB6-8E16-4562-A1B4-344910849997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Infrastructure.Tests", "src\tests\SupplyChain.Infrastructure.Tests\SupplyChain.Infrastructure.Tests.csproj", "{EF028FDE-7A23-4014-9451-91B03F159F0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B630247-379F-4A68-A31D-2F952FD2CDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B630247-379F-4A68-A31D-2F952FD2CDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B630247-379F-4A68-A31D-2F952FD2CDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B630247-379F-4A68-A31D-2F952FD2CDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67624C55-9B43-4E36-810B-EA491B1C7AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67624C55-9B43-4E36-810B-EA491B1C7AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67624C55-9B43-4E36-810B-EA491B1C7AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67624C55-9B43-4E36-810B-EA491B1C7AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A7EAFB6-8E16-4562-A1B4-344910849997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7EAFB6-8E16-4562-A1B4-344910849997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7EAFB6-8E16-4562-A1B4-344910849997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7EAFB6-8E16-4562-A1B4-344910849997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF028FDE-7A23-4014-9451-91B03F159F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF028FDE-7A23-4014-9451-91B03F159F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF028FDE-7A23-4014-9451-91B03F159F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF028FDE-7A23-4014-9451-91B03F159F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B73EF943-9D95-41A7-8659-7C6699753A8E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{A02B2F7B-5DA0-4489-8DBC-5B062A961831} = {F6BE7008-1E1D-4343-958D-4858ED268160}
+		{623C66AF-2E8E-4C04-8F2C-E1C713E0966C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1B630247-379F-4A68-A31D-2F952FD2CDFF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{67624C55-9B43-4E36-810B-EA491B1C7AB9} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{289FAB26-27A8-4453-8D5C-9F9D1AE6C0E2} = {B73EF943-9D95-41A7-8659-7C6699753A8E}
+		{3A7EAFB6-8E16-4562-A1B4-344910849997} = {B73EF943-9D95-41A7-8659-7C6699753A8E}
+		{EF028FDE-7A23-4014-9451-91B03F159F0C} = {B73EF943-9D95-41A7-8659-7C6699753A8E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FCCAF67F-E85A-4629-9E82-E306DF9D6FCB}
+	EndGlobalSection
+EndGlobal
