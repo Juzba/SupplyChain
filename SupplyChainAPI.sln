@@ -10,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F6BE7008-1E1D-4343-958D-4858ED268160}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uml", "uml", "{A02B2F7B-5DA0-4489-8DBC-5B062A961831}"
+	ProjectSection(SolutionItems) = preProject
+		doc\uml\SupplyChain_ClassDiagram.drawio = doc\uml\SupplyChain_ClassDiagram.drawio
+		doc\uml\SupplyChain_ClassDiagram.drawio.pdf = doc\uml\SupplyChain_ClassDiagram.drawio.pdf
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requirements", "requirements", "{BF796FAE-4EFF-4078-8C11-6DB545848CE0}"
 	ProjectSection(SolutionItems) = preProject
