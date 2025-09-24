@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SupplyChain.Api.Controllers
@@ -10,6 +11,10 @@ namespace SupplyChain.Api.Controllers
         [HttpGet]
         public ActionResult TestGet()
         {
+            
+
+
+
             return Ok("Vsecko jede jak ma!");
         }
     }
