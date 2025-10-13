@@ -4,7 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-SupplyChain.MVC-36d74d22-b0a7-4254-a523-a02ea23a1284</UserSecretsId>
+    <UserSecretsId>aspnet-SupplyChain.MVC-d1bc87b9-e763-4720-86d0-30d937a2d698</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
