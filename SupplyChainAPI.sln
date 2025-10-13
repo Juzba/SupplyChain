@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F6BE7008-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uml", "uml", "{A02B2F7B-5DA0-4489-8DBC-5B062A961831}"
 	ProjectSection(SolutionItems) = preProject
-		doc\uml\ClassDiagram_SC.drawio = doc\uml\ClassDiagram_SC.drawio
-		doc\uml\ClassDiagram_SC.pdf = doc\uml\ClassDiagram_SC.pdf
+		doc\uml\ClassDiagram_SupplyChain.drawio = doc\uml\ClassDiagram_SupplyChain.drawio
+		doc\uml\ClassDiagram_SupplyChain.pdf = doc\uml\ClassDiagram_SupplyChain.pdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requirements", "requirements", "{BF796FAE-4EFF-4078-8C11-6DB545848CE0}"
 	ProjectSection(SolutionItems) = preProject
-		requirements\project-brief.md = requirements\project-brief.md
-		requirements\MyInfo2.odt = requirements\MyInfo2.odt
 		requirements\MyInfo1.odt = requirements\MyInfo1.odt
+		requirements\MyInfo2.odt = requirements\MyInfo2.odt
+		requirements\project-brief.md = requirements\project-brief.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Core", "src\SupplyChain.Core\SupplyChain.Core.csproj", "{623C66AF-2E8E-4C04-8F2C-E1C713E0966C}"
