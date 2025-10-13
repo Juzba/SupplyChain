@@ -12,7 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SupplyChain.Api\SupplyChain.Api.csproj" />
+    <ProjectReference Include="..\SupplyChain.Core\SupplyChain.Core.csproj" />
   </ItemGroup>
 
 </Project>

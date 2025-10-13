@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
+using SupplyChain.Infrastructure.Data;
 using System.Linq.Expressions;
 
 namespace SupplyChain.Infrastructure.Repositories
