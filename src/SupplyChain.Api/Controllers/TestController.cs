@@ -12,7 +12,7 @@ namespace SupplyChain.Api.Controllers
         public ActionResult TestGet()
         {
             
-
+         
 
 
             return Ok("Vsecko jede jak ma!");
