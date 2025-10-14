@@ -1,1 +1,0 @@
-Add-Migration InitialCreateOne -Project SupplyChain.Infrastructure -StartupProject SupplyChain.MVC -OutputDir Migrations
