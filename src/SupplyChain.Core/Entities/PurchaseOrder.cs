@@ -15,6 +15,9 @@ public class PurchaseOrder
     public int ApprovedById { get; set; }
     public ApplicationUser ApprovedBy { get; set; }
     public DateTime? ApprovedAt { get; set; }
+
+
+    public ICollection<PurchaseOrderLine> PurchaseOrderLines { get; set; } = [];
 }
 
 public enum POStatus

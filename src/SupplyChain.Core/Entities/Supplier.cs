@@ -14,5 +14,9 @@ public class Supplier
 
     // Application User
     public int ManagedById { get; set; }
-    public ApplicationUser ManagedBy { get; set; }
+    public ApplicationUser ManagedBy { get; set; } = new();
+
+
+    // PurchaseOrders
+    public ICollection<PurchaseOrder> PurchaseOrders { get; set; } = [];
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SupplyChain.MVC.Data;
+using SupplyChain.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

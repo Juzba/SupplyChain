@@ -17,8 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "uml", "uml", "{A02B2F7B-5DA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requirements", "requirements", "{BF796FAE-4EFF-4078-8C11-6DB545848CE0}"
 	ProjectSection(SolutionItems) = preProject
-		requirements\MyInfo1.odt = requirements\MyInfo1.odt
-		requirements\MyInfo2.odt = requirements\MyInfo2.odt
 		requirements\project-brief.md = requirements\project-brief.md
 	EndProjectSection
 EndProject
@@ -35,6 +33,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.Infrastructure.Tests", "src\tests\SupplyChain.Infrastructure.Tests\SupplyChain.Infrastructure.Tests.csproj", "{EF028FDE-7A23-4014-9451-91B03F159F0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplyChain.MVC", "src\SupplyChain.MVC\SupplyChain.MVC.csproj", "{92F103C1-E708-4254-AC24-41ADBF9F3786}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyInfo", "MyInfo", "{378B7317-DA70-4EF6-9DE1-1D485C1C27AA}"
+	ProjectSection(SolutionItems) = preProject
+		requirements\MyInfo\commands.txt = requirements\MyInfo\commands.txt
+		requirements\MyInfo\MyInfo1.odt = requirements\MyInfo\MyInfo1.odt
+		requirements\MyInfo\MyInfo2.odt = requirements\MyInfo\MyInfo2.odt
+		requirements\MyInfo\project-brief.md = requirements\MyInfo\project-brief.md
+		requirements\MyInfo\Usporadani.txt = requirements\MyInfo\Usporadani.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +91,7 @@ Global
 		{3A7EAFB6-8E16-4562-A1B4-344910849997} = {B73EF943-9D95-41A7-8659-7C6699753A8E}
 		{EF028FDE-7A23-4014-9451-91B03F159F0C} = {B73EF943-9D95-41A7-8659-7C6699753A8E}
 		{92F103C1-E708-4254-AC24-41ADBF9F3786} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{378B7317-DA70-4EF6-9DE1-1D485C1C27AA} = {BF796FAE-4EFF-4078-8C11-6DB545848CE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FCCAF67F-E85A-4629-9E82-E306DF9D6FCB}

@@ -7,4 +7,8 @@ public class Warehouse
     public string Name { get; set; }
     public string Address { get; set; }
     public bool IsActive { get; set; }
+
+
+    public ICollection<StockLevel> StockLevels { get; set; } = [];
+    public ICollection<StockMovement> StockMovements { get; set; } = [];
 }

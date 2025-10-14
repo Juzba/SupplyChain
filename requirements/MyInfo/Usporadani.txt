@@ -1,0 +1,155 @@
+﻿
+
+
+
+
+
+🧠 1. SupplyChain.Core (Doménová logika)
+Účel:
+Obsahuje business logiku, entity, rozhraní a pravidla domény.
+Nemá žádné závislosti na databázi, API, EF nebo frameworkách — jen čisté C#.
+
+
+php
+SupplyChain.Core
+│
+├── Entities/
+│   ├── Product.cs
+│   ├── Supplier.cs
+│   ├── Order.cs
+│   └── ...
+│
+├── Interfaces/
+│   ├── IProductRepository.cs
+│   ├── IOrderService.cs
+│   └── ...
+│
+├── Services/
+│   ├── OrderService.cs         // obsahuje logiku kolem objednávek
+│   └── InventoryService.cs
+│
+├── Exceptions/
+│   └── DomainException.cs
+│
+└── Enums/
+    └── OrderStatus.cs
+Zásada:
+➡️ Core nesmí záviset na EF, HTTP, logování ani žádném frameworku.
+Pouze rozhraní a čistá logika.
+
+🧱 2. SupplyChain.Infrastructure (Implementace logiky)
+Účel:
+Zajišťuje implementace rozhraní z Core — tedy přístup k DB, externím službám, filesystemu apod.
+
+
+
+SupplyChain.Infrastructure
+│
+├── Data/
+│   ├── SupplyChainDbContext.cs   // EF Core DbContext
+│   └── Configurations/
+│       ├── ProductConfiguration.cs
+│       └── OrderConfiguration.cs
+│
+├── Repositories/
+│   ├── ProductRepository.cs      // implementuje IProductRepository
+│   └── OrderRepository.cs
+│
+├── Services/
+│   ├── EmailService.cs           // implementuje IEmailService
+│   └── SupplierSyncService.cs
+│
+├── Extensions/
+│   └── DependencyInjection.cs    // AddInfrastructure(this IServiceCollection)
+│
+└── Migrations/
+    └── ...                       // automaticky generované EF migrace
+Zásada:
+➡️ Infrastructure může odkazovat na Core.
+Naopak Core nikdy nezná Infrastructure.
+
+🌐 3. SupplyChain.API (REST Web API)
+Účel:
+Zveřejňuje API rozhraní přes HTTP (např. pro frontend, mobilní appky, integrace).
+Používá Core a Infrastructure přes Dependency Injection.
+
+Typ projektu:
+ASP.NET Core Web API
+
+Složky a obsah:
+
+arduino
+SupplyChain.API
+│
+├── Controllers/
+│   ├── ProductsController.cs
+│   ├── OrdersController.cs
+│   └── SuppliersController.cs
+│
+├── DTOs/
+│   ├── ProductDto.cs
+│   ├── CreateOrderRequest.cs
+│   └── OrderResponse.cs
+│
+├── Mapping/
+│   └── MappingProfile.cs         // AutoMapper konfigurace
+│
+├── Middleware/
+│   ├── ExceptionHandlingMiddleware.cs
+│   └── LoggingMiddleware.cs
+│
+├── Extensions/
+│   ├── ServiceCollectionExtensions.cs
+│   └── ApplicationBuilderExtensions.cs
+│
+├── Program.cs
+├── appsettings.json
+└── launchSettings.json
+Zásada:
+➡️ API volá do Core přes rozhraní, nikdy nepřistupuje přímo k DB.
+Používá DI, aby dostal implementace z Infrastructure.
+
+💻 4. SupplyChain.Mvc (Web UI / Razor Views)
+Účel:
+Poskytuje webové rozhraní pro uživatele — typicky Razor Pages nebo MVC (Views + Controllers).
+Může používat Core služby přímo nebo volat API přes HttpClient.
+
+Typ projektu:
+ASP.NET Core Web App (MVC)
+
+Složky a obsah:
+
+less
+SupplyChain.Mvc
+│
+├── Controllers/
+│   ├── HomeController.cs
+│   ├── ProductController.cs
+│   └── OrderController.cs
+│
+├── Views/
+│   ├── Home/
+│   │   └── Index.cshtml
+│   ├── Product/
+│   │   ├── Index.cshtml
+│   │   └── Details.cshtml
+│   └── Shared/
+│       └── _Layout.cshtml
+│
+├── Models/                      // jednoduché view modely
+│   ├── ProductViewModel.cs
+│   └── OrderViewModel.cs
+│
+├── Services/                    // pokud voláš API přes HttpClient
+│   ├── ApiClient/
+│   │   ├── ProductApiClient.cs
+│   │   └── OrderApiClient.cs
+│   └── ServiceExtensions.cs
+│
+├── wwwroot/                     // statická aktiva (CSS, JS)
+│   └── css/
+│       └── site.css
+│
+├── Program.cs
+└── appsettings.json
+🔁 Vazby mezi projekty

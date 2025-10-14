@@ -15,4 +15,9 @@ public class Product
     public string BarCode { get; set; }
     public decimal Weight { get; set; }
     public string Unit { get; set; }
+
+
+    public ICollection<StockMovement> StockMovements { get; set; } = [];
+    public ICollection<PurchaseOrderLine> PurchaseOrderLines { get; set; } = [];
+    public ICollection<StockLevel> StockLevels { get; set; } = [];
 }
