@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SupplyChain.Core.Entities;
 
 namespace SupplyChain.Infrastructure.Data;
 
 
-//public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
 {
     private readonly bool _isSeedEnabled;
 
@@ -14,7 +15,6 @@ public class ApplicationDbContext : DbContext
         _isSeedEnabled = isSeedEnabled;
     }
 
-    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
     public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
