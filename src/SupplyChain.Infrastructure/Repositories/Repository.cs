@@ -10,8 +10,8 @@ namespace SupplyChain.Infrastructure.Repositories
     {
         Task AddAsync(T entity, CancellationToken cancellationToken = default);
         Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
-        Task<T?> GetAsync(string id, CancellationToken cancellationToken = default);
-        Task<T?> GetAsync(int id, CancellationToken cancellationToken = default);
+        Task<T?> FindAsync(string id, CancellationToken cancellationToken = default);
+        Task<T?> FindAsync(int id, CancellationToken cancellationToken = default);
         Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default);
         void Update(T entity);
         void Remove(T entity);
@@ -54,8 +54,8 @@ namespace SupplyChain.Infrastructure.Repositories
         }
 
 
-        // GET ASYNC ENTITY - id string //
-        public async Task<T?> GetAsync(string id, CancellationToken cancellationToken = default)
+        // FIND ASYNC ENTITY - id string //
+        public async Task<T?> FindAsync(string id, CancellationToken cancellationToken = default)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(id);
 
@@ -71,8 +71,8 @@ namespace SupplyChain.Infrastructure.Repositories
 
 
 
-        // GET ASYNC ENTITY - id int //
-        public async Task<T?> GetAsync(int id, CancellationToken cancellationToken = default)
+        // FIND ASYNC ENTITY - id int //
+        public async Task<T?> FindAsync(int id, CancellationToken cancellationToken = default)
         {
             var entity = await _context.Set<T>().FindAsync([id], cancellationToken);
 
@@ -128,7 +128,7 @@ namespace SupplyChain.Infrastructure.Repositories
         // GET ALL ASYNC //
         public async Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().ToListAsync(cancellationToken);
         }
 
 

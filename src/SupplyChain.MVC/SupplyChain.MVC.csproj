@@ -13,9 +13,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SupplyChain.Services\SupplyChain.Services.csproj" />
     <ProjectReference Include="..\SupplyChain.Core\SupplyChain.Core.csproj" />
     <ProjectReference Include="..\SupplyChain.Infrastructure\SupplyChain.Infrastructure.csproj" />
   </ItemGroup>

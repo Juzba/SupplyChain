@@ -1,84 +1,114 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SupplyChain.Core.Entities;
+using SupplyChain.Infrastructure.Repositories;
 
 namespace SupplyChain.MVC.Controllers;
 
 [Authorize]
-public class ProductController : Controller
+public class ProductController(IRepository<Product> repository) : Controller
 {
-    // GET: ProductController
-    public ActionResult Index()
+    private readonly IRepository<Product> _repository = repository;
+
+
+    public async Task<IActionResult> Index()
+    {
+        return View(await _repository.GetAllAsync());
+    }
+
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null) return NotFound();
+
+        var result = await _repository.FirstOrDefaultAsync(p => p.Id == id);
+        if (result == null) return NotFound();
+
+        return View(result);
+    }
+
+
+    public IActionResult Create()
     {
         return View();
     }
 
-    // GET: ProductController/Details/5
-    public ActionResult Details(int id)
-    {
-        return View();
-    }
 
-    // GET: ProductController/Create
-    public ActionResult Create()
-    {
-        return View();
-    }
-
-    // POST: ProductController/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Create(IFormCollection collection)
+    public async Task<IActionResult> Create([Bind("Id,SKU,Name,CategoryId,UnitPrice,MinStockLevel,IsActive,BarCode,Weight,Unit")] Product product)
     {
-        try
-        {
-            return RedirectToAction(nameof(Index));
-        }
-        catch
-        {
-            return View();
-        }
+        if (!ModelState.IsValid) return View(product);
+
+        await _repository.AddAsync(product);
+        await _repository.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
     }
 
-    // GET: ProductController/Edit/5
-    public ActionResult Edit(int id)
+
+    public async Task<IActionResult> Edit(int? id)
     {
-        return View();
+        if (id == null) return NotFound();
+
+        var result = await _repository.FirstOrDefaultAsync(p => p.Id == id);
+        if (result == null) return NotFound();
+
+        return View(result);
     }
 
-    // POST: ProductController/Edit/5
+
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int id, IFormCollection collection)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,SKU,Name,CategoryId,UnitPrice,MinStockLevel,IsActive,BarCode,Weight,Unit")] Product product)
     {
+        if (id != product.Id) return NotFound();
+        if (!ModelState.IsValid) return View(product);
+
         try
         {
-            return RedirectToAction(nameof(Index));
+            _repository.Update(product);
+            await _repository.SaveChangesAsync();
         }
-        catch
+        catch (DbUpdateConcurrencyException)
         {
-            return View();
+            if (!await CategoryExists(product.Id)) return NotFound();
+            else throw;
         }
+        return RedirectToAction(nameof(Index));
     }
 
-    // GET: ProductController/Delete/5
-    public ActionResult Delete(int id)
+
+    public async Task<IActionResult> Delete(int? id)
     {
-        return View();
+        if (id == null) return NotFound();
+
+        var category = await _repository.FirstOrDefaultAsync(m => m.Id == id);
+        if (category == null) return NotFound();
+
+        return View(category);
     }
 
-    // POST: ProductController/Delete/5
-    [HttpPost]
+
+    [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult Delete(int id, IFormCollection collection)
+    public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        try
+        var result = await _repository.FindAsync(id);
+        if (result != null)
         {
-            return RedirectToAction(nameof(Index));
+            _repository.Remove(result);
         }
-        catch
-        {
-            return View();
-        }
+        await _repository.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    private async Task<bool> CategoryExists(int id)
+    {
+        return await _repository.AnyAsync(e => e.Id == id);
     }
 }
+
