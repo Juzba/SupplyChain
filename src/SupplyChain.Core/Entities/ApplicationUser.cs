@@ -14,6 +14,14 @@ public class ApplicationUser : IdentityUser<int>
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
 
+    // Soft delete
+    public bool IsDeleted { get; set; } = false;
+    public DateTime? DeletedAt { get; set; }
+    public int? DeletedById { get; set; }
+    public ApplicationUser DeletedBy { get; set; }
+    public string DeletedByName { get; set; }
+
+
     public ICollection<Supplier> ManagedSuppliers { get; set; } = [];
     public ICollection<PurchaseOrder> RequestedPurchaseOrders { get; set; } = [];
     public ICollection<PurchaseOrder> ApprovedPurchaseOrders { get; set; } = [];

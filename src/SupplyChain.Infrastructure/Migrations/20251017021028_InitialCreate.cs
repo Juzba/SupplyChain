@@ -37,6 +37,10 @@ namespace SupplyChain.Infrastructure.Migrations
                     Department = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Position = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedById = table.Column<int>(type: "int", nullable: true),
+                    DeletedByName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -55,6 +59,11 @@ namespace SupplyChain.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_AspNetUsers_DeletedById",
+                        column: x => x.DeletedById,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -291,8 +300,7 @@ namespace SupplyChain.Infrastructure.Migrations
                     WarehouseId = table.Column<int>(type: "int", nullable: false),
                     AvailableQuantity = table.Column<int>(type: "int", nullable: false),
                     ReservedQuantity = table.Column<int>(type: "int", nullable: false),
-                    IncomingQuantity = table.Column<int>(type: "int", nullable: false),
-                    FreeQuantity = table.Column<int>(type: "int", nullable: false)
+                    IncomingQuantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -410,6 +418,11 @@ namespace SupplyChain.Infrastructure.Migrations
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_DeletedById",
+                table: "AspNetUsers",
+                column: "DeletedById");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

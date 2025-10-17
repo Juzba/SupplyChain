@@ -11,7 +11,7 @@ public class StockLevel
     public int AvailableQuantity { get; set; }
     public int ReservedQuantity { get; set; }
     public int IncomingQuantity { get; set; }
-    public int FreeQuantity { get; set; }
+    public int FreeQuantity => AvailableQuantity - ReservedQuantity;
 
 
 }

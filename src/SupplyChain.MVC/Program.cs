@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using SupplyChain.Core.Entities;
 using SupplyChain.Infrastructure.Data;
 using SupplyChain.Infrastructure.Repositories;
-using SupplyChain.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped(typeof(ICrud<>), typeof(Crud<>));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 

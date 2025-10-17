@@ -93,6 +93,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
             .HasForeignKey(p => p.CreatedById)
             .OnDelete(DeleteBehavior.Restrict);
 
+        modelBuilder.Entity<ApplicationUser>()
+            .HasOne(u => u.DeletedBy)
+            .WithMany()
+            .HasForeignKey(u => u.DeletedById)
+            .OnDelete(DeleteBehavior.NoAction);
+
 
         // decimal settings
         modelBuilder.Entity<Product>()

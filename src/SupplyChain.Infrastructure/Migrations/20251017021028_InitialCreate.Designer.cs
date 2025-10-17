@@ -12,8 +12,8 @@ using SupplyChain.Infrastructure.Data;
 namespace SupplyChain.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251014235729_InitialCreatetwo")]
-    partial class InitialCreatetwo
+    [Migration("20251017021028_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -176,6 +176,15 @@ namespace SupplyChain.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DeletedById")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DeletedByName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Department")
                         .HasColumnType("nvarchar(max)");
 
@@ -188,6 +197,9 @@ namespace SupplyChain.Infrastructure.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -229,6 +241,8 @@ namespace SupplyChain.Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DeletedById");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -390,9 +404,6 @@ namespace SupplyChain.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("AvailableQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FreeQuantity")
                         .HasColumnType("int");
 
                     b.Property<int>("IncomingQuantity")
@@ -565,6 +576,16 @@ namespace SupplyChain.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SupplyChain.Core.Entities.ApplicationUser", b =>
+                {
+                    b.HasOne("SupplyChain.Core.Entities.ApplicationUser", "DeletedBy")
+                        .WithMany()
+                        .HasForeignKey("DeletedById")
+                        .OnDelete(DeleteBehavior.NoAction);
+
+                    b.Navigation("DeletedBy");
                 });
 
             modelBuilder.Entity("SupplyChain.Core.Entities.Product", b =>

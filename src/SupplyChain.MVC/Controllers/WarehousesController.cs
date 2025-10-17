@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SupplyChain.Core.Entities;
 using SupplyChain.Infrastructure.Data;
 
 namespace SupplyChain.MVC.Controllers
 {
+    [Authorize]
     public class WarehousesController(ApplicationDbContext context) : Controller
     {
         private readonly ApplicationDbContext _context = context;
